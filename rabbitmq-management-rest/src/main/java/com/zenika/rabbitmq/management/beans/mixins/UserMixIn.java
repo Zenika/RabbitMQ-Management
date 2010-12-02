@@ -33,4 +33,7 @@ public class UserMixIn {
 	 */
 	@JsonProperty("administrator")
 	private Boolean admin;
+
+	@JsonProperty("password_hash")
+	private String passwordHash;
 }

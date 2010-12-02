@@ -1,10 +1,8 @@
 package com.zenika.rabbitmq.management.services.rest.remote;
 
-import java.util.List;
 import java.util.Map;
 import javax.ws.rs.*;
 
-import com.zenika.rabbitmq.management.beans.Application;
 import com.zenika.rabbitmq.management.beans.Configuration;
 import com.zenika.rabbitmq.management.beans.NodeInfo;
 import com.zenika.rabbitmq.management.beans.User;
@@ -18,15 +16,6 @@ public interface RabbitMqServiceRemote {
 	@GET
 	@Path("overview")
 	NodeInfo getNodeOverview();
-
-	/**
-	 * Get all the running applications in the Erlang VM.
-	 *
-	 * @return A list of applications running on the node
-	 */
-	@GET
-	@Path("applications")
-	List<Application> getApplications();
 
 	/**
 	 * Get the complete server configuration. Everything is retrieved apart from

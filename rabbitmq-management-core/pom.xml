@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>rabbitmq-management</artifactId>
 		<groupId>com.zenika.rabbitmq</groupId>
-		<version>2.1.1-SNAPSHOT</version>
+		<version>2.2.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>rabbitmq-management-core</artifactId>
 	<name>RabbitMQ-Management Core</name>

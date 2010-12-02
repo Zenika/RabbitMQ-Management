@@ -25,7 +25,6 @@ public abstract class ServiceTest {
 		Permission permission = new Permission();
 		permission.setUser(currentUser.getUsername());
 		permission.setvHost(vHost.getName());
-		permission.setScope(Permission.Scope.all);
 		permission.setConfigure(".*");
 		permission.setRead(".*");
 		permission.setWrite(".*");

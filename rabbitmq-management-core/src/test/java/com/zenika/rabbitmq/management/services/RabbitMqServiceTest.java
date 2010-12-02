@@ -29,7 +29,6 @@ public abstract class RabbitMqServiceTest extends ServiceTest {
 	public void testGetApplications() throws Exception {
 		List<Application> applications = rabbitMqService.getApplications();
 		assertNotNull(applications);
-
 	}
 
 	@Test
@@ -67,7 +66,6 @@ public abstract class RabbitMqServiceTest extends ServiceTest {
 		dummyPermission.setConfigure(".*");
 		dummyPermission.setWrite(".*");
 		dummyPermission.setRead(".*");
-		dummyPermission.setScope(Permission.Scope.all);
 		dummyPermission.setvHost(dummyVHost.getName());
 		List<Permission> permissions = new ArrayList<Permission>();
 		permissions.add(dummyPermission);

@@ -18,8 +18,5 @@
 		<field name="configure">
 			<constraint annotation="javax.validation.constraints.NotNull"/>
 		</field>
-		<field name="scope">
-			<constraint annotation="javax.validation.constraints.NotNull"/>
-		</field>
 	</bean>
 </constraint-mappings>

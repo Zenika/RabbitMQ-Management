@@ -21,7 +21,6 @@ public abstract class PermissionServiceTest extends ServiceTest {
 		dummyPermission.setConfigure("configurepath.*");
 		dummyPermission.setWrite("writepath.*");
 		dummyPermission.setRead("readpath.*");
-		dummyPermission.setScope(Permission.Scope.client);
 		dummyPermission.setvHost(getvHost().getName());
 	}
 

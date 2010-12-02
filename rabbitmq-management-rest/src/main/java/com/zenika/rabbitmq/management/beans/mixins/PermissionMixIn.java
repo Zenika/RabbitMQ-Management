@@ -49,13 +49,4 @@ public class PermissionMixIn {
 	 */
 	@JsonProperty("read")
 	private String read;
-
-	/**
-	 * Scope of the permissions
-	 * <p/>
-	 * This determines when permissions are checked
-	 */
-	@JsonProperty("scope")
-	private Permission.Scope scope;
-
 }

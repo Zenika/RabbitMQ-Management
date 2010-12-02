@@ -27,7 +27,7 @@ public class RabbitMqServiceRest extends AbstractRabbitMqService implements
 	}
 
 	public List<Application> getApplications() {
-		return rabbitMqServiceRemote.getApplications();
+		throw new UnsupportedOperationException("Operation not supported");
 	}
 
 	public Configuration getCompleteConfiguration() {

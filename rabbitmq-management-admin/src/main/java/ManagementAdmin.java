@@ -121,14 +121,13 @@ public class ManagementAdmin implements
 	}
 
 	public void setPermissions(String username, Pattern configure, Pattern read,
-			Pattern write, String vhostPath) {
+			Pattern write, String vHostPath) {
 		Permission permission = new Permission();
 		permission.setUser(username);
 		permission.setConfigure(configure.pattern());
 		permission.setRead(read.pattern());
 		permission.setWrite(write.pattern());
-		permission.setScope(Permission.Scope.all);
-		permission.setvHost(vhostPath);
+		permission.setvHost(vHostPath);
 		permissionService.putPermission(permission);
 	}
 
@@ -136,10 +135,10 @@ public class ManagementAdmin implements
 		this.clearPermissions(username, DEFAULT_VHOST);
 	}
 
-	public void clearPermissions(String username, String vhostPath) {
+	public void clearPermissions(String username, String vHostPath) {
 		Permission permission = new Permission();
 		permission.setUser(username);
-		permission.setvHost(vhostPath);
+		permission.setvHost(vHostPath);
 		permissionService.deletePermission(permission);
 	}
 
@@ -147,8 +146,8 @@ public class ManagementAdmin implements
 		return listPermissions(DEFAULT_VHOST);
 	}
 
-	public List<String> listPermissions(String vhostPath) {
-		//return permissionService.getPermissions(vhostPath);
+	public List<String> listPermissions(String vHostPath) {
+		//return permissionService.getPermissions(vHostPath);
 		return null;  //To change body of implemented methods use File | Settings | File Templates.
 	}
 

@@ -74,6 +74,11 @@ public class NodeInfo implements Serializable {
 	 */
 	private String statisticsLevel;
 
+	/**
+	 * Management plugin version
+	 */
+	private String managementVersion;
+
 	public List<String> getBounds() {
 		return bounds;
 	}
@@ -178,6 +183,14 @@ public class NodeInfo implements Serializable {
 
 	public void setStatisticsLevel(String statisticsLevel) {
 		this.statisticsLevel = statisticsLevel;
+	}
+
+	public String getManagementVersion() {
+		return managementVersion;
+	}
+
+	public void setManagementVersion(String managementVersion) {
+		this.managementVersion = managementVersion;
 	}
 
 	@Override

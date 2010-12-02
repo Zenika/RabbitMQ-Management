@@ -37,13 +37,6 @@ public class Permission implements Serializable {
 	 */
 	private String read;
 
-	/**
-	 * Scope of the permissions
-	 * <p/>
-	 * This determines when permissions are checked
-	 */
-	private Scope scope;
-
 	public String getUser() {
 		return user;
 	}
@@ -84,14 +77,6 @@ public class Permission implements Serializable {
 		this.read = read;
 	}
 
-	public Scope getScope() {
-		return scope;
-	}
-
-	public void setScope(Scope scope) {
-		this.scope = scope;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -105,8 +90,6 @@ public class Permission implements Serializable {
 				that.configure != null)
 			return false;
 		if (read != null ? !read.equals(that.read) : that.read != null)
-			return false;
-		if (scope != that.scope)
 			return false;
 		if (user != null ? !user.equals(that.user) : that.user != null)
 			return false;
@@ -129,21 +112,6 @@ public class Permission implements Serializable {
 	public String toString() {
 		return "Permission{user='" + user + "', vHost='" + vHost
 				+ "', configure='" + configure + "', write='" + write
-				+ "', read='" + read + "', scope='" + scope + "'}";
+				+ "', read='" + read + "'}";
 	}
-
-	/**
-	 * Scope of the permissions
-	 */
-	public static enum Scope {
-		/**
-		 * Server-generated resource names
-		 */
-		all,
-		/**
-		 * Only for client-specified resource names
-		 */
-		client
-	}
-
 }

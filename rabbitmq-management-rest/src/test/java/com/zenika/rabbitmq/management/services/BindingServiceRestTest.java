@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class BindingServiceRestTest extends BindingServiceTest {
 
-	@Ignore("Does this text really need to exist ?")
+	@Ignore("Does this test really need to exist ?")
 	@Test
 	public void testGetBinding() throws Exception {
 		getRabbitConnection().createChannel().queueBind(

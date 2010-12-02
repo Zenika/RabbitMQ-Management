@@ -19,6 +19,11 @@ public class User implements Serializable {
 	private String password;
 
 	/**
+	 * The hashed password
+	 */
+	private String passwordHash;
+
+	/**
 	 * Administrator flag
 	 */
 	private Boolean admin;
@@ -31,12 +36,37 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
+	/**
+	 * Get the clear password of the user
+	 * <p/>
+	 * This method isn't reliable and shouldn't be used
+	 *
+	 * @return
+	 * @see #getPasswordHash()
+	 */
+	@Deprecated
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPasswordHash() {
+		return passwordHash;
+	}
+
+	/**
+	 * Set the hashed version of the password
+	 * <p/>
+	 * This method shouldn't be called manually
+	 *
+	 * @param passwordHash
+	 * @see #setPassword(String)
+	 */
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
 
 	public Boolean isAdmin() {
@@ -70,7 +100,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User{username='" + username + "', password='" + password
+		return "User{username='" + username + "', passwordHash='" + passwordHash
 				+ "', admin=" + admin + '}';
 	}
 }

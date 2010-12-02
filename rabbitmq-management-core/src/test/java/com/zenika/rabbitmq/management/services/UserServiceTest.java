@@ -88,7 +88,6 @@ public abstract class UserServiceTest extends ServiceTest {
 		dummyPermission.setConfigure("configurepath.*");
 		dummyPermission.setWrite("writepath.*");
 		dummyPermission.setRead("readpath.*");
-		dummyPermission.setScope(Permission.Scope.client);
 		dummyPermission.setvHost(getvHost().getName());
 
 		userService.putUser(dummyUser);

@@ -96,4 +96,10 @@ public class NodeInfoMixIn {
 	 */
 	@JsonProperty("statistics_level")
 	private String statisticsLevel;
+
+	/**
+	 * Management plugin version
+	 */
+	@JsonProperty("management_version")
+	private String managementVersion;
 }

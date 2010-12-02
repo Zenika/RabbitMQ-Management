@@ -85,7 +85,6 @@ public abstract class VHostServiceTest extends ServiceTest {
 		dummyPermission.setConfigure("configurepath.*");
 		dummyPermission.setWrite("writepath.*");
 		dummyPermission.setRead("readpath.*");
-		dummyPermission.setScope(Permission.Scope.client);
 		dummyPermission.setvHost(dummyVHost.getName());
 
 		getvHostService().putVHost(dummyVHost);
