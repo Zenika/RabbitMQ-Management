@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="RestTest-context.xml"/>
+
+	<bean id="exchangeService"
+		  class="com.zenika.rabbitmq.management.services.rest.ExchangeServiceRest">
+		<constructor-arg>
+			<bean class="org.jboss.resteasy.client.spring.RestClientProxyFactoryBean">
+				<property name="serviceInterface"
+						  value="com.zenika.rabbitmq.management.services.rest.remote.ExchangeServiceRemote"/>
+				<property name="baseUri"
+						  value="http://${rabbitmq.server}:${rabbitmq.management.port}/api"/>
+				<property name="httpClient" ref="httpClient"/>
+			</bean>
+		</constructor-arg>
+		<property name="validator" ref="validator"/>
+	</bean>
+
+	<bean id="bindingService"
+		  class="com.zenika.rabbitmq.management.services.rest.BindingServiceRest">
+		<constructor-arg>
+			<bean class="org.jboss.resteasy.client.spring.RestClientProxyFactoryBean">
+				<property name="serviceInterface"
+						  value="com.zenika.rabbitmq.management.services.rest.remote.BindingServiceRemote"/>
+				<property name="baseUri"
+						  value="http://${rabbitmq.server}:${rabbitmq.management.port}/api"/>
+				<property name="httpClient" ref="httpClient"/>
+			</bean>
+		</constructor-arg>
+		<property name="validator" ref="validator"/>
+	</bean>
+</beans>

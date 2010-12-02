@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="objectMapper"
+		  class="com.zenika.rabbitmq.management.tools.RestEasyObjectMapperRetriever"
+		  factory-method="getMapper"/>
+
+	<bean class="com.zenika.rabbitmq.management.tools.MixInSpringScanner">
+		<constructor-arg
+				value="com.zenika.rabbitmq.management.beans.mixins"/>
+		<constructor-arg ref="objectMapper"/>
+	</bean>
+	<bean id="propertyConfigurer"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:rabbitBroker.properties"/>
+	</bean>
+
+	<bean id="httpClientFactory"
+		  class="com.zenika.rabbitmq.management.tools.WthWhyThisClassDoesntAlreadyExist">
+		<constructor-arg value="${rabbitmq.user}"/>
+		<constructor-arg value="${rabbitmq.password}"/>
+	</bean>
+	<bean id="httpClient" factory-bean="httpClientFactory"
+		  factory-method="getHttpClient"/>
+</beans>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="classpath:management-rest-context.xml"/>
+
+	<bean name="validator"
+		  class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="mappingLocations">
+			<array>
+				<value>
+					classpath*:com/zenika/rabbitmq/management/beans/*.xml
+				</value>
+			</array>
+		</property>
+	</bean>
+
+	<bean id="vHostService"
+		  class="com.zenika.rabbitmq.management.services.rest.VHostServiceRest">
+		<constructor-arg>
+			<bean class="org.jboss.resteasy.client.spring.RestClientProxyFactoryBean">
+				<property name="serviceInterface"
+						  value="com.zenika.rabbitmq.management.services.rest.remote.VHostServiceRemote"/>
+				<property name="baseUri"
+						  value="http://${rabbitmq.server}:${rabbitmq.management.port}/api"/>
+				<property name="httpClient" ref="httpClient"/>
+			</bean>
+		</constructor-arg>
+		<property name="validator" ref="validator"/>
+	</bean>
+
+
+	<bean id="permissionService"
+		  class="com.zenika.rabbitmq.management.services.rest.PermissionServiceRest">
+		<constructor-arg>
+			<bean class="org.jboss.resteasy.client.spring.RestClientProxyFactoryBean">
+				<property name="serviceInterface"
+						  value="com.zenika.rabbitmq.management.services.rest.remote.PermissionServiceRemote"/>
+				<property name="baseUri"
+						  value="http://${rabbitmq.server}:${rabbitmq.management.port}/api"/>
+				<property name="httpClient" ref="httpClient"/>
+			</bean>
+		</constructor-arg>
+		<property name="validator" ref="validator"/>
+	</bean>
+
+	<bean id="vHost"
+		  class="com.zenika.rabbitmq.management.beans.VHost">
+		<property name="name" value="${rabbitmq.test.vhost}"/>
+	</bean>
+
+	<bean id="user"
+		  class="com.zenika.rabbitmq.management.beans.User">
+		<property name="username" value="${rabbitmq.user}"/>
+		<property name="password" value="${rabbitmq.password}"/>
+		<property name="admin" value="true"/>
+	</bean>
+
+
+	<bean id="connectionFactory"
+		  class="org.springframework.amqp.rabbit.connection.SingleConnectionFactory"
+		  scope="prototype">
+		<constructor-arg value="${rabbitmq.server}"/>
+		<property name="virtualHost" value="${rabbitmq.test.vhost}"/>
+		<property name="port" value="${rabbitmq.port}"/>
+		<property name="username" value="${rabbitmq.user}"/>
+		<property name="password" value="${rabbitmq.password}"/>
+	</bean>
+</beans>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.zenika.rabbitmq</groupId>
+	<artifactId>rabbitmq-management</artifactId>
+	<name>RabbitMQ-Management</name>
+	<version>2.1.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Versions -->
+		<springframework.version>3.0.5.RELEASE</springframework.version>
+		<resteasy.version>2.0.1.GA</resteasy.version>
+		<jackson.version>1.6.2</jackson.version>
+		<javax.ws.rs.version>1.1.1</javax.ws.rs.version>
+		<springframework.amqp.version>1.0.0.BUILD-SNAPSHOT
+		</springframework.amqp.version>
+		<com.rabbitmq.version>1.8.1</com.rabbitmq.version>
+		<validation.version>1.0.0.GA</validation.version>
+		<hibernate.validator.version>4.1.0.Final</hibernate.validator.version>
+
+		<junit.version>4.8.2</junit.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<log4j.version>1.2.16</log4j.version>
+	</properties>
+
+	<modules>
+		<module>rabbitmq-management-core</module>
+		<module>rabbitmq-management-rest</module>
+		<module>rabbitmq-management-admin</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.zenika.rabbitmq</groupId>
+				<artifactId>rabbitmq-management-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zenika.rabbitmq</groupId>
+				<artifactId>rabbitmq-management-core</artifactId>
+				<version>${project.version}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>${validation.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate.validator.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${springframework.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.amqp</groupId>
+				<artifactId>spring-rabbit-admin</artifactId>
+				<version>${springframework.amqp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.amqp</groupId>
+				<artifactId>spring-amqp</artifactId>
+				<version>${springframework.amqp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>jsr311-api</artifactId>
+				<version>${javax.ws.rs.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxrs</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jackson-provider</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-spring</artifactId>
+				<version>${resteasy.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-jaxrs</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<!-- Logging -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.mail</groupId>
+						<artifactId>mail</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.jms</groupId>
+						<artifactId>jms</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.jdmk</groupId>
+						<artifactId>jmxtools</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.jmx</groupId>
+						<artifactId>jmxri</artifactId>
+					</exclusion>
+				</exclusions>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>jboss-maven2-release-repository</id>
+			<name>JBoss</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/
+			</url>
+		</repository>
+		<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Maven Central Compatible Spring Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+		<repository>
+			<id>org.springframework.maven.snapshot</id>
+			<name>Maven Central Compatible Spring Snapshot Repository</name>
+			<url>http://maven.springframework.org/snapshot</url>
+		</repository>
+
+	</repositories>
+</project>
