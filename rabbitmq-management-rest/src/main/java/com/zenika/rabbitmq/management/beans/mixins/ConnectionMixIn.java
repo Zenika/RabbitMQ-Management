@@ -1,7 +1,6 @@
 package com.zenika.rabbitmq.management.beans.mixins;
 
 import com.zenika.rabbitmq.management.beans.Connection;
-import com.zenika.rabbitmq.management.beans.MessagesRates;
 import com.zenika.rabbitmq.management.tools.MixIn;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonMethod;
@@ -22,6 +21,9 @@ public class ConnectionMixIn {
 	 */
 	@JsonProperty("name")
 	private String name;
+
+	@JsonProperty("node")
+	private String node;
 
 	/**
 	 * Virtual host name
@@ -58,6 +60,12 @@ public class ConnectionMixIn {
 	 */
 	@JsonProperty("peer_port")
 	private Integer peerPort;
+
+	/**
+	 * SSL activation
+	 */
+	@JsonProperty("ssl")
+	private Boolean ssl;
 
 	/**
 	 * The subject of the peer's SSL certificate
@@ -149,18 +157,6 @@ public class ConnectionMixIn {
 	 */
 	@JsonProperty("channels")
 	private Long channels;
-
-	/**
-	 * Details on the received octets
-	 */
-	@JsonProperty("recv_oct_details")
-	private MessagesRates receivedOctetsDetails;
-
-	/**
-	 * Details on the sent octets
-	 */
-	@JsonProperty("send_oct_details")
-	private MessagesRates sentOctetsDetails;
 
 	@MixIn(Connection.ClientProperties.class)
 	public static class ClientPropertiesMixin {

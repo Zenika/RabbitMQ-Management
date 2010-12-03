@@ -21,8 +21,8 @@ public abstract class RabbitMqServiceTest extends ServiceTest {
 
 	@Test
 	public void testGetOverview() throws Exception {
-		NodeInfo nodeInfo = rabbitMqService.getNodeOverview();
-		assertNotNull(nodeInfo);
+		BrokerInfos brokerInfo = rabbitMqService.getOverview();
+		assertNotNull(brokerInfo);
 	}
 
 	@Test

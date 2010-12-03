@@ -14,7 +14,7 @@ public interface RabbitMqService {
 	 *
 	 * @return Informations on the node
 	 */
-	NodeInfo getNodeOverview();
+	BrokerInfos getOverview();
 
 	/**
 	 * Get all the running applications in the Erlang VM.

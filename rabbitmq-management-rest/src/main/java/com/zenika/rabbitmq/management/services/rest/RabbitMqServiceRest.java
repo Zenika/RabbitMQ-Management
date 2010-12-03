@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.zenika.rabbitmq.management.beans.Application;
+import com.zenika.rabbitmq.management.beans.BrokerInfos;
 import com.zenika.rabbitmq.management.beans.Configuration;
-import com.zenika.rabbitmq.management.beans.NodeInfo;
 import com.zenika.rabbitmq.management.beans.User;
 import com.zenika.rabbitmq.management.services.AbstractRabbitMqService;
 import com.zenika.rabbitmq.management.services.RabbitMqService;
@@ -22,8 +22,8 @@ public class RabbitMqServiceRest extends AbstractRabbitMqService implements
 		this.rabbitMqServiceRemote = rabbitMqServiceRemote;
 	}
 
-	public NodeInfo getNodeOverview() {
-		return rabbitMqServiceRemote.getNodeOverview();
+	public BrokerInfos getOverview() {
+		return rabbitMqServiceRemote.getOverview();
 	}
 
 	public List<Application> getApplications() {

@@ -1,5 +1,6 @@
 package com.zenika.rabbitmq.management.beans.mixins;
 
+import java.util.Date;
 import java.util.Map;
 
 import com.zenika.rabbitmq.management.beans.Connection;
@@ -24,6 +25,9 @@ public class QueueMixIn {
 	 */
 	@JsonProperty("name")
 	private String name;
+
+	@JsonProperty("node")
+	private String node;
 
 	/**
 	 * Virtual host name
@@ -106,12 +110,15 @@ public class QueueMixIn {
 	@JsonProperty("consumers")
 	private long consumers;
 
+	@JsonProperty("idleSince")
+	private Date idleSince;
+
 	/**
 	 * Bytes of memory consumed by the Erlang process for the queue, including
 	 * stack, heap and internal structures
 	 */
 	@JsonProperty("memory")
-	private long usedMemory;
+	private long memory;
 
 	/**
 	 *

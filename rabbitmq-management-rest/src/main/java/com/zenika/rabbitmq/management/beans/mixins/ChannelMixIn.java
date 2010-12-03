@@ -2,7 +2,6 @@ package com.zenika.rabbitmq.management.beans.mixins;
 
 import com.zenika.rabbitmq.management.beans.Channel;
 import com.zenika.rabbitmq.management.beans.Connection;
-import com.zenika.rabbitmq.management.beans.MessageStats;
 import com.zenika.rabbitmq.management.tools.MixIn;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonMethod;
@@ -23,6 +22,9 @@ public class ChannelMixIn {
 	 */
 	@JsonProperty("name")
 	private String name;
+
+	@JsonProperty("node")
+	private String node;
 
 	/**
 	 * Virtual host name
@@ -96,10 +98,4 @@ public class ChannelMixIn {
 	 */
 	@JsonProperty("client_flow_blocked")
 	private Boolean clientFlowBlocked;
-
-	/**
-	 * Statistics on messages
-	 */
-	@JsonProperty("message_stats")
-	private MessageStats messageStats;
 }

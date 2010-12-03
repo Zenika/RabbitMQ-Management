@@ -1,6 +1,7 @@
 package com.zenika.rabbitmq.management.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -13,6 +14,8 @@ public class Queue implements Serializable {
 	 * The name of the queue
 	 */
 	private String name;
+
+	private String node;
 
 	/**
 	 * Virtual host name
@@ -82,11 +85,13 @@ public class Queue implements Serializable {
 	 */
 	private long consumers;
 
+	private Date idleSince;
+
 	/**
 	 * Bytes of memory consumed by the Erlang process for the queue, including
 	 * stack, heap and internal structures
 	 */
-	private long usedMemory;
+	private long memory;
 
 	/**
 	 *
@@ -100,6 +105,14 @@ public class Queue implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getNode() {
+		return node;
+	}
+
+	public void setNode(String node) {
+		this.node = node;
 	}
 
 	public String getvHost() {
@@ -206,12 +219,20 @@ public class Queue implements Serializable {
 		this.consumers = consumers;
 	}
 
-	public long getUsedMemory() {
-		return usedMemory;
+	public Date getIdleSince() {
+		return idleSince;
 	}
 
-	public void setUsedMemory(long usedMemory) {
-		this.usedMemory = usedMemory;
+	public void setIdleSince(Date idleSince) {
+		this.idleSince = idleSince;
+	}
+
+	public long getMemory() {
+		return memory;
+	}
+
+	public void setMemory(long memory) {
+		this.memory = memory;
 	}
 
 	public Object getBackingQueueStatus() {
@@ -246,8 +267,8 @@ public class Queue implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Queue{durable=" + durable + ", name='" + name + "', vHost='"
-				+ vHost + "', autoDelete=" + autoDelete + ", arguments="
-				+ arguments + '}';
+		return "Queue{name='" + name + "', node='" + node + "', vHost='" + vHost
+				+ "', durable=" + durable + ", autoDelete=" + autoDelete
+				+ ", arguments=" + arguments + '}';
 	}
 }

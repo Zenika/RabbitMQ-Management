@@ -3,8 +3,8 @@ package com.zenika.rabbitmq.management.services.rest.remote;
 import java.util.Map;
 import javax.ws.rs.*;
 
+import com.zenika.rabbitmq.management.beans.BrokerInfos;
 import com.zenika.rabbitmq.management.beans.Configuration;
-import com.zenika.rabbitmq.management.beans.NodeInfo;
 import com.zenika.rabbitmq.management.beans.User;
 
 public interface RabbitMqServiceRemote {
@@ -15,7 +15,7 @@ public interface RabbitMqServiceRemote {
 	 */
 	@GET
 	@Path("overview")
-	NodeInfo getNodeOverview();
+	BrokerInfos getOverview();
 
 	/**
 	 * Get the complete server configuration. Everything is retrieved apart from

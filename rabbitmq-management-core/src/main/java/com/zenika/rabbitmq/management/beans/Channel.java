@@ -1,6 +1,7 @@
 package com.zenika.rabbitmq.management.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Logical connection between a client and the broker
@@ -29,6 +30,11 @@ public class Channel implements Serializable {
 	private String pid;
 
 	/**
+	 * Node where the channel is
+	 */
+	private String node;
+
+	/**
 	 * Id of the Erlang process associated with the connection to which the channel
 	 * belongs
 	 */
@@ -43,6 +49,11 @@ public class Channel implements Serializable {
 	 * Username associated with the channel
 	 */
 	private String username;
+
+	/**
+	 * Idle time
+	 */
+	private Date idleSince;
 
 	/**
 	 * True if the channel is in transactional mode, false otherwise
@@ -77,8 +88,10 @@ public class Channel implements Serializable {
 	/**
 	 * Statistics on messages
 	 */
+	/*
+	@Deprecated
 	private MessageStats messageStats;
-
+    */
 	public String getName() {
 		return name;
 	}
@@ -111,6 +124,14 @@ public class Channel implements Serializable {
 		this.pid = pid;
 	}
 
+	public String getNode() {
+		return node;
+	}
+
+	public void setNode(String node) {
+		this.node = node;
+	}
+
 	public String getConnectionPid() {
 		return connectionPid;
 	}
@@ -133,6 +154,14 @@ public class Channel implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public Date getIdleSince() {
+		return idleSince;
+	}
+
+	public void setIdleSince(Date idleSince) {
+		this.idleSince = idleSince;
 	}
 
 	public Boolean isTransactional() {
@@ -183,14 +212,6 @@ public class Channel implements Serializable {
 		this.clientFlowBlocked = clientFlowBlocked;
 	}
 
-	public MessageStats getMessageStats() {
-		return messageStats;
-	}
-
-	public void setMessageStats(MessageStats messageStats) {
-		this.messageStats = messageStats;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -216,8 +237,8 @@ public class Channel implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Channel{name='" + name + "', vHost='" + vHost
-				+ "', connectionPid='" + connectionPid + "', username='"
+		return "Channel{name='" + name + "', node='" + node + "', vHost='"
+				+ vHost + "', connectionPid='" + connectionPid + "', username='"
 				+ username + "', clientFlowBlocked=" + clientFlowBlocked + '}';
 	}
 }

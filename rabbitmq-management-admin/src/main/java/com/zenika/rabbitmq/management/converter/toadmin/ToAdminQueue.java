@@ -57,12 +57,12 @@ public class ToAdminQueue extends QueueInfo {
 
 	@Override
 	public long getMemory() {
-		return queue.getUsedMemory();
+		return queue.getMemory();
 	}
 
 	@Override
 	public void setMemory(long memory) {
-		queue.setUsedMemory(memory);
+		queue.setMemory(memory);
 	}
 
 	@Override

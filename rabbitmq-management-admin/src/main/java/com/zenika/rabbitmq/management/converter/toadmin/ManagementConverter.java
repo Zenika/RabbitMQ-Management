@@ -26,7 +26,7 @@ public final class ManagementConverter {
 		queue.setName(adminQueue.getName());
 		queue.setPid(adminQueue.getPid());
 		queue.setMessagesReady(adminQueue.getMessagesReady());
-		queue.setUsedMemory(adminQueue.getMemory());
+		queue.setMemory(adminQueue.getMemory());
 		queue.setConsumers(adminQueue.getConsumers());
 
 		return queue;

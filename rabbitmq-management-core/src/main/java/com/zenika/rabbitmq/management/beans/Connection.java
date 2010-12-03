@@ -14,6 +14,11 @@ public class Connection implements Serializable {
 	private String name;
 
 	/**
+	 * Node where the connection is
+	 */
+	private String node;
+
+	/**
 	 * Virtual host name
 	 */
 	private String vHost;
@@ -42,6 +47,11 @@ public class Connection implements Serializable {
 	 * Peer port
 	 */
 	private Integer peerPort;
+
+	/**
+	 * SSL activation
+	 */
+	private Boolean ssl;
 
 	/**
 	 * The subject of the peer's SSL certificate
@@ -119,22 +129,20 @@ public class Connection implements Serializable {
 	 */
 	private Long channels;
 
-	/**
-	 * Details on the received octets
-	 */
-	private MessagesRates receivedOctetsDetails;
-
-	/**
-	 * Details on the sent octets
-	 */
-	private MessagesRates sentOctetsDetails;
-
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getNode() {
+		return node;
+	}
+
+	public void setNode(String node) {
+		this.node = node;
 	}
 
 	public String getvHost() {
@@ -183,6 +191,14 @@ public class Connection implements Serializable {
 
 	public void setPeerPort(Integer peerPort) {
 		this.peerPort = peerPort;
+	}
+
+	public Boolean getSsl() {
+		return ssl;
+	}
+
+	public void isSsl(Boolean ssl) {
+		this.ssl = ssl;
 	}
 
 	public String getPeerCertSubject() {
@@ -305,22 +321,6 @@ public class Connection implements Serializable {
 		this.channels = channels;
 	}
 
-	public MessagesRates getReceivedOctetsDetails() {
-		return receivedOctetsDetails;
-	}
-
-	public void setReceivedOctetsDetails(MessagesRates receivedOctetsDetails) {
-		this.receivedOctetsDetails = receivedOctetsDetails;
-	}
-
-	public MessagesRates getSentOctetsDetails() {
-		return sentOctetsDetails;
-	}
-
-	public void setSentOctetsDetails(MessagesRates sentOctetsDetails) {
-		this.sentOctetsDetails = sentOctetsDetails;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -345,9 +345,9 @@ public class Connection implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Connection{name='" + name + "', vHost='" + vHost
-				+ "', serverAddress='" + serverAddress + ':' + serverPort
-				+ "', peerAddress='" + peerAddress + ':' + peerPort
+		return "Connection{name='" + name + "', node='" + node + "', vHost='"
+				+ vHost + "', serverAddress='" + serverAddress + ':'
+				+ serverPort + "', peerAddress='" + peerAddress + ':' + peerPort
 				+ "', state=" + state + ", username='" + username + "'}";
 	}
 
