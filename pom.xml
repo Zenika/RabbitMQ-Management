@@ -20,7 +20,7 @@
 		</springframework.amqp.version>
 		<com.rabbitmq.version>1.8.1</com.rabbitmq.version>
 		<validation.version>1.0.0.GA</validation.version>
-		<hibernate.validator.version>4.1.0.Final</hibernate.validator.version>
+		<hibernate.validator.version>5.3.5.Final</hibernate.validator.version>
 
 		<junit.version>4.8.2</junit.version>
 		<slf4j.version>1.6.1</slf4j.version>
